@@ -1,0 +1,158 @@
+[gd_scene load_steps=11 format=3 uid="uid://dwemo4nptn87q"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_1svow"]
+[ext_resource type="PackedScene" uid="uid://cdnaewxxiqsr5" path="res://cannon.tscn" id="1_dl3a0"]
+[ext_resource type="Script" path="res://RowLines.gd" id="3_eay58"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r07jv"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_0aia2"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_frykt"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_opwu5"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_yqe3c"]
+font_size = 48
+font_color = Color(0.964706, 0.803922, 0, 1)
+
+[sub_resource type="Theme" id="Theme_8acb5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w3q3j"]
+font_size = 48
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_1svow")
+max_health = 4
+
+[node name="Cannon" parent="." instance=ExtResource("1_dl3a0")]
+position = Vector2(-1, 174)
+
+[node name="MoveCounterLabel" type="Label" parent="."]
+offset_left = 788.0
+offset_top = 1838.0
+offset_right = 899.0
+offset_bottom = 1883.0
+text = "Move 0"
+label_settings = SubResource("LabelSettings_r07jv")
+horizontal_alignment = 2
+
+[node name="HealthLabel" type="Label" parent="."]
+offset_left = 575.0
+offset_top = 1839.0
+offset_right = 704.0
+offset_bottom = 1884.0
+text = "Health 4"
+label_settings = SubResource("LabelSettings_0aia2")
+
+[node name="LevelLabel" type="Label" parent="."]
+offset_left = 42.0
+offset_top = 1849.0
+offset_right = 147.0
+offset_bottom = 1894.0
+text = "Level 1"
+label_settings = SubResource("LabelSettings_frykt")
+
+[node name="WaveLabel" type="Label" parent="."]
+offset_left = 184.0
+offset_top = 1853.0
+offset_right = 324.0
+offset_bottom = 1898.0
+text = "Wave 1/3"
+label_settings = SubResource("LabelSettings_opwu5")
+
+[node name="VictoryScreen" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Background" type="ColorRect" parent="VictoryScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.815686)
+
+[node name="VictoryLabel" type="Label" parent="VictoryScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level Complete!"
+label_settings = SubResource("LabelSettings_yqe3c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NextLevelButton" type="Button" parent="VictoryScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.0
+offset_top = 48.0
+offset_right = 107.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_8acb5")
+theme_override_colors/font_color = Color(0.937255, 0.807843, 0.270588, 1)
+theme_override_font_sizes/font_size = 24
+text = "Next Level"
+flat = true
+
+[node name="WaveClearedScreen" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Background" type="ColorRect" parent="WaveClearedScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.027451)
+
+[node name="WaveClearedLabel" type="Label" parent="WaveClearedScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = 73.0
+offset_right = 175.0
+offset_bottom = 173.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Wave Cleared!"
+label_settings = SubResource("LabelSettings_w3q3j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NextWaveButton" type="Button" parent="WaveClearedScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.0
+offset_top = 186.0
+offset_right = 122.0
+offset_bottom = 246.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Next Wave"
+
+[node name="RowLines" type="Node2D" parent="."]
+script = ExtResource("3_eay58")

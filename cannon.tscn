@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdnaewxxiqsr5"]
+
+[ext_resource type="Script" path="res://cannon.gd" id="1_x6uyk"]
+[ext_resource type="Texture2D" uid="uid://bf1m3rjr81tmy" path="res://icon.svg" id="2_rr67n"]
+
+[node name="Cannon" type="Node2D"]
+position = Vector2(540, 1750)
+script = ExtResource("1_x6uyk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+texture = ExtResource("2_rr67n")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
